@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Image from './Image';
+import styled from 'styled-components';
 
-export default class Gallery extends Component {
-	render() {
-		return (
-			<div>
-				<h1>Gallery</h1>
-				<div className="gallery-container">
-          <Image />
-				</div>
-			</div>
-		);
-	}
-}
+const GalleryContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+const Gallery = () => (
+	<div>
+		<h1>Gallery</h1>
+		<GalleryContainer>
+
+		</GalleryContainer>
+	</div>
+);
+
+export default Gallery;

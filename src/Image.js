@@ -11,10 +11,10 @@ const ImageCard = styled.div`
 		object-fit: cover;
 	}
 `;
-const Image = () => (
+const Image = ({url}) => (
 	<ImageCard>
 		<img
-			src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/03173132/Australian-Shepherd.1.jpg"
+			src={url}
 			alt=""
 			className="image"
 		/>

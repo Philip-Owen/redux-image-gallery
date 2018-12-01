@@ -14,7 +14,7 @@ export default class App extends Component {
 		return (
 			<div>
 				<Upload addImage={this.addImage}/>
-				<Gallery />
+				<Gallery images={this.state.images}/>
 			</div>
 		);
 	}

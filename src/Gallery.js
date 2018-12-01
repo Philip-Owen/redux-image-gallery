@@ -7,11 +7,11 @@ const GalleryContainer = styled.div`
 	flex-wrap: wrap;
 `;
 
-const Gallery = () => (
+const Gallery = ({images}) => (
 	<div>
 		<h1>Gallery</h1>
 		<GalleryContainer>
-
+      {images.map(url => <Image key={url} url={url} />)}
 		</GalleryContainer>
 	</div>
 );

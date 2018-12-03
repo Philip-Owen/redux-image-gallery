@@ -9,19 +9,12 @@ import Upload from './Upload';
 const store = createStore(rootReducer, {}, composeWithDevTools());
 
 export default class App extends Component {
-	state = {
-		images: [],
-	};
-	addImage = imageUrl => {
-		const images = this.state.images;
-		this.setState({ images: [...images, imageUrl] });
-	};
 	render() {
 		return (
 			<Provider store={store}>
 				<div>
 					<Upload />
-					<Gallery images={this.state.images} />
+					<Gallery />
 				</div>
 			</Provider>
 		);

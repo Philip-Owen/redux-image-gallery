@@ -12,10 +12,6 @@ const Upload = ({ imageUrlChange, addImage }) => {
 	);
 };
 
-const mapStateToProps = state => ({
-	imageUrl: state.imageUrl,
-});
-
 const mapDispatchToProps = dispatch => ({
 	imageUrlChange: e => dispatch({ type: 'URL_CHANGE', payload: e.target.value }),
 	addImage: e => {
@@ -26,6 +22,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-	mapStateToProps,
+	null,
 	mapDispatchToProps
 )(Upload);

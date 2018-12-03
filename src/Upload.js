@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Upload extends Component {
-	state = {
-		imageUrl: '',
-	};
-	handleChange = e => {
-		const imageUrl = e.target.value;
-		this.setState({ imageUrl });
-	};
-	handleSubmit = e => {
+const Upload = ({ imageUrlChange, addImage }) => {
+	return (
+		<div>
+			<form onSubmit={addImage}>
+				<input type="text" placeholder="Image URL" onChange={imageUrlChange} />
+				<button>Add to Gallery</button>
+			</form>
+		</div>
+	);
+};
+
+const mapStateToProps = state => ({
+	imageUrl: state.imageUrl,
+});
+
+const mapDispatchToProps = dispatch => ({
+	imageUrlChange: e => dispatch({ type: 'URL_CHANGE', payload: e.target.value }),
+	addImage: e => {
 		e.preventDefault();
-		this.props.addImage(this.state.imageUrl);
+		dispatch({ type: 'ADD_IMAGE' });
 		e.target.reset();
-		this.setState({ imageUrl: '' });
-	};
-	render() {
-		return (
-			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" placeholder="Image URL" onChange={this.handleChange} />
-					<button>Add to Gallery</button>
-				</form>
-			</div>
-		);
-	}
-}
+	},
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Upload);
